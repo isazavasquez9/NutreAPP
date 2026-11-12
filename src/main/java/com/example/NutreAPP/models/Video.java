@@ -2,14 +2,15 @@ package com.example.NutreAPP.models;
 
 import java.util.UUID;
 
-import org.hibernate.annotations.Cache;
-
-import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+@Entity
 public class Video {
 
     @Id 
@@ -25,9 +26,10 @@ public class Video {
     @Column (name = "url",nullable = false, unique = false )
     private String url;
 
-    @Column (name = "categoria", nullable = false, unique = false)
+    @Enumerated(EnumType.STRING)
+    @Column(name = "categoria", nullable = false)
     private Categoria categoria;
-    
+
     public Video() {
     }
     public Video(UUID id, String titulo, String descripcion, String url, Categoria categoria) {
