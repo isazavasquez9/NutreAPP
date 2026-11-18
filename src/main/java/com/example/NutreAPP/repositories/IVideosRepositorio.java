@@ -9,7 +9,7 @@ import com.example.NutreAPP.models.Categoria;
 import com.example.NutreAPP.models.Video;
 
 @Repository
-public interface InnerIVideoRepositorio extends JpaRepository<Video, UUID> {
+public interface IVideosRepositorio extends JpaRepository<Video, UUID> {
 
     List<Video> findByCategoria(Categoria categoria);
 

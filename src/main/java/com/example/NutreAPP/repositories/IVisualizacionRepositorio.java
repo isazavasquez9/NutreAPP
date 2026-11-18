@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.example.NutreAPP.models.Visualizacion;
 
 @Repository 
-public interface InnerIVisualizacion extends JpaRepository<Visualizacion, UUID> {
+public interface IVisualizacionRepositorio extends JpaRepository<Visualizacion, UUID> {
 
     List<Visualizacion> findByFechaVisualizacion(LocalDate fechaVisualizacion);
 

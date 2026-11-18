@@ -8,7 +8,7 @@ import com.example.NutreAPP.models.Usuario;
 
 
     @Repository
-    public interface InnerIUsuarioRepositorio extends JpaRepository<Usuario, UUID>{
+    public interface IUsuarioRepositorio extends JpaRepository<Usuario, UUID>{
     
         List<Usuario> findByDepartamentoAndRol(String departamento, String rol);
 

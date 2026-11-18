@@ -13,18 +13,18 @@ import org.springframework.transaction.annotation.Transactional;
 import com.example.NutreAPP.models.Categoria;
 import com.example.NutreAPP.models.Video;
 import com.example.NutreAPP.models.Visualizacion;
-import com.example.NutreAPP.repositories.InnerIVideoRepositorio;
-import com.example.NutreAPP.repositories.InnerIVisualizacion;
+import com.example.NutreAPP.repositories.IVideosRepositorio;
+import com.example.NutreAPP.repositories.IVisualizacionRepositorio;
 
 @SpringBootTest
 @Transactional
 class NutreAppApplicationTests {
 
 	@Autowired
-	private InnerIVideoRepositorio videoRepositorio;
+	private IVideosRepositorio videoRepositorio;
 
 	@Autowired
-	private InnerIVisualizacion visualizacionRepositorio;
+	private IVisualizacionRepositorio visualizacionRepositorio;
 
 	@Test
 	void contextLoads() {
