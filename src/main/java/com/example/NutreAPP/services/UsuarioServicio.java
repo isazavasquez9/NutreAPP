@@ -37,7 +37,7 @@ public Usuario modificar(UUID id, Usuario datos){
     }else{
         //1.PRECARGAR AL INFO QUE EXISTE ACTUALMENTE EN BD
         Usuario usuarioEncontrado=usuarioBuscado.get();
-        
+
         //2.ESPACIO APRA MODIFICAR SOLO LAS PROPIEDADES PERMITIDAS
         usuarioEncontrado.setNombre(datos.getNombre());
         usuarioEncontrado.setRol(datos.getRol());
@@ -47,12 +47,19 @@ public Usuario modificar(UUID id, Usuario datos){
 
     }
 }
-
+//metodo para eliminar
+public boolean eliminar(UUID id){
+     Optional<Usuario> usuarioBuscado = this.repositorio.findById(id);
+    if(!usuarioBuscado.isPresent()){
+        throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "id no encontrado");
+    }else{
+        this.repositorio.deleteById(id);
+        return true;
+    }
 }
 
-//metodo para eliminar
 //metodo para buscar por departamento y rol
 //metodo para buscar por correo
 //metodo para buscar por rol
 //metodo para verificar correo
-
+}

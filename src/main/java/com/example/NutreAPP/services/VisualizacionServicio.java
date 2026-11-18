@@ -5,6 +5,8 @@ import org.apache.el.stream.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
+
+import com.example.NutreAPP.models.Usuario;
 import com.example.NutreAPP.models.Visualizacion;
 import com.example.NutreAPP.repositories.IVisualizacionRepositorio;
 
@@ -27,6 +29,15 @@ public Visualizacion buscarPorId(UUID id){
 }
 public List<Visualizacion> buscarTodos(){
     this.repositorio.findAll();
+}
+public boolean eliminar(UUID id){
+     Optional<Visualizacion> usuarioBuscado = this.repositorio.findById(id);
+    if(!usuarioBuscado.isPresent()){
+        throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "id no encontrado");
+    }else{
+        this.repositorio.deleteById(id);
+        return true;
+    }
 }
 
 }
