@@ -27,6 +27,7 @@ public Visualizacion buscarPorId(UUID id){
 }
 public List<Visualizacion> buscarTodos(){
     this.repositorio.findAll();
+}
 
 }
-}
+

@@ -28,14 +28,31 @@ public Usuario buscarPorId(UUID id){
 //metodo para buscar todos
 public List<Usuario> buscarTodos(){
     this.repositorio.findAll();
+}
+//metodo para modificar 
+public Usuario modificar(UUID id, Usuario datos){
+    Optional<Usuario> usuarioBuscado = this.repositorio.findById(id);
+    if(!usuarioBuscado.isPresent()){
+        throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "id no encontrado");
+    }else{
+        //1.PRECARGAR AL INFO QUE EXISTE ACTUALMENTE EN BD
+        Usuario usuarioEncontrado=usuarioBuscado.get();
+        
+        //2.ESPACIO APRA MODIFICAR SOLO LAS PROPIEDADES PERMITIDAS
+        usuarioEncontrado.setNombre(datos.getNombre());
+        usuarioEncontrado.setRol(datos.getRol());
+
+        //3.ESPACIO PARA VOLVER A GUARDAR EL USUARIO QUE SE ACABA DE MODIFICAR 
+        return this.repositorio.save(usuarioEncontrado);
+
+    }
+}
 
 }
 
-
-//metodo para modificar 
 //metodo para eliminar
 //metodo para buscar por departamento y rol
 //metodo para buscar por correo
 //metodo para buscar por rol
 //metodo para verificar correo
-}
+
