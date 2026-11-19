@@ -52,7 +52,7 @@ public class UsuarioValidacion {
 
     public void validarUsuarioNuevo(Usuario datos){
         String correoEntregado=datos.getCorreo();
-        if(this.repositorio.exiexistsByCorreo(correoEntregado)){
+        if(this.repositorio.existsByCorreo(correoEntregado)){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"el correo entregado ya existe en la base de datos");
 
         }

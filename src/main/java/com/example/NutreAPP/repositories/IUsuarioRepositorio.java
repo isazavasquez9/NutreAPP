@@ -16,6 +16,6 @@ import com.example.NutreAPP.models.Usuario;
 
         List<Usuario> findByRolAndOrderByNombreAsc(String rol);
 
-        boolean exiexistsByCorreo(String correo);
+        boolean existsByCorreo(String correo);
 
     }

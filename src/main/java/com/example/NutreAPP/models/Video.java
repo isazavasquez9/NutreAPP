@@ -20,7 +20,7 @@ public class Video {
     @Column(name = "titulo", nullable = false, unique = false)
     private String titulo;
 
-    @Column (name = "descripcion", nullable = false, unique = false)
+    @Column (name = "descripcion", nullable = true, unique = false)
     private String descripcion;
 
     @Column (name = "url",nullable = false, unique = false )
